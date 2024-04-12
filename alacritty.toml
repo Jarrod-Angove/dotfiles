@@ -1,0 +1,8 @@
+[font]
+size = 15.0
+
+[font.normal]
+family  = "JetBrainsMonoNL"
+
+[window]
+opacity = 0.9
