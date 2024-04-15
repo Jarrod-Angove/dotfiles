@@ -25,6 +25,38 @@
       ./hardware-configuration.nix
     ];
 
+  # List packages installed in system profile. To search, run:
+  # $ nix search wget
+  environment.systemPackages = with pkgs; [
+    lunarvim              # vim but cool
+    wget 
+    git
+    alacritty             # the superior terminal emulator
+    picom                 # compositor that enables transparency
+    gnome.gnome-keyring
+    polkit_gnome
+    pulseaudioFull
+    unrar
+    unzip
+    zoxide
+    zsh
+    firefox
+    xclip
+    arandr                # xrander GUI for managing monitor layout
+    neofetch              # literally just for flexing
+    feh                   # for setting wallpaper
+    xorg.xkill            # mostly to kill off the extra polybar when I reload i3
+    maim                  # used to set Shift+Ctrl+n to take area screenshots in the i3 config
+    btop                  # fancy system monitor
+    gh                    # github api for command line
+    typst                 # like LaTeX but better :)
+    pandoc                # for converting between document types
+    julia                 # my wife
+    tailscale
+    eza
+    zathura
+  ];
+
   # Bootloader.
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/vda";
@@ -103,30 +135,6 @@
     enableLsColors = true;
   };
 
- # programs.zsh = {
- #   enable = true;
- #   enableCompletion = true; 
- #   syntaxHighlighting.enable = true;
-
- #   shellAliases = {
- #     vim = "lvim"; 
- #     clc  = "clear";
- #     rebuild-nix = "sudo nixos-rebuild switch";
- #   };
- #   history.size = 10000;
- #   #history.path = "${config.xdg.dataHome}/zsh/history";
-
- #   zplug = {
- #     enable = true;
- #     plugins =  [
- #     { name = "zsh-users/zsh-autosuggestions"; }
- #     { name = "zsh-users/zsh-syntax-highlighting"; }
- #     { name = "chrissicool/zsh-256color"; }
- #     { name = "jeffreytse/zsh-vi-mode"; }
- #     ];
- #   };
- # };
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.jangove = {
     isNormalUser = true;
@@ -139,34 +147,10 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    lunarvim              # vim but cool
-    wget 
-    git
-    alacritty             # the superior terminal emulator
-    picom                 # compositor that enables transparency
-    gnome.gnome-keyring
-    polkit_gnome
-    pulseaudioFull
-    unrar
-    unzip
-    zoxide
-    zsh
-    firefox
-    xclip
-    arandr                # xrander GUI for managing monitor layout
-    neofetch              # literally just for flexing
-    feh                   # for setting wallpaper
-    xorg.xkill            # mostly to kill off the extra polybar when I reload i3
-    maim                  # used to set Shift+Ctrl+n to take area screenshots in the i3 config
-    btop                  # fancy system monitor
-    gh                    # github api for command line
-    typst                 # like LaTeX but better :)
-    pandoc                # for converting between document types
-    julia                 # my wife
-    tailscale
+
+  fonts.packages = with pkgs; [
+    nerdfonts
+    jetbrains-mono
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -213,6 +197,8 @@
   hardware = {
     bluetooth.enable = true;
   };
+
+  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
