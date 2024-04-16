@@ -50,10 +50,13 @@
     pkgs.gh                    # github api for command line
     pkgs.typst                 # like LaTeX but better :)
     pkgs.pandoc                # for converting between document types
-    pkgs.julia                 # my wife
     pkgs.tailscale
     pkgs.eza
     pkgs.zathura
+    pkgs.dunst
+
+    # Unstable packages -- despite their name, this is usually just latest stable release 
+    pkgs-unstable.julia
     pkgs-unstable.alacritty
   ];
 
