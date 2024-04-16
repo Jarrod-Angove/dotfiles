@@ -54,6 +54,7 @@
     pkgs.eza
     pkgs.zathura
     pkgs.dunst
+    pkgs.zsh-powerlevel10k
 
     # Unstable packages -- despite their name, this is usually just latest stable release 
     pkgs-unstable.julia
@@ -136,6 +137,7 @@
     syntaxHighlighting.enable = true;
     histSize = 3000;
     enableLsColors = true;
+    promptInit = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
