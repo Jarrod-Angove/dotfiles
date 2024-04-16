@@ -12,6 +12,8 @@ alias nix-edit="sudo lvim ~/dotfiles/configuration.nix"
 alias nix-reload="sudo nixos-rebuild switch"
 alias ls="eza"
 alias tree="eza -T"
+alias lsl="eza -l"
+alias lsa="eza -a"
 
 # Environment variables
 export EZA_ICONS_AUTO='always'
