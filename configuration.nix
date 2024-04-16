@@ -27,37 +27,34 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    lunarvim              # vim but cool
-    wget 
-    git
-    picom                 # compositor that enables transparency
-    gnome.gnome-keyring
-    polkit_gnome
-    pulseaudioFull
-    unrar
-    unzip
-    zoxide
-    zsh
-    firefox
-    xclip
-    arandr                # xrander GUI for managing monitor layout
-    neofetch              # literally just for flexing
-    feh                   # for setting wallpaper
-    xorg.xkill            # mostly to kill off the extra polybar when I reload i3
-    maim                  # used to set Shift+Ctrl+n to take area screenshots in the i3 config
-    btop                  # fancy system monitor
-    gh                    # github api for command line
-    typst                 # like LaTeX but better :)
-    pandoc                # for converting between document types
-    julia                 # my wife
-    tailscale
-    eza
-    zathura
-  ];
-
-  environment.systemPackages = with pkgs-unstable; [
-    alacritty
+  environment.systemPackages = [
+    pkgs.lunarvim              # vim but cool
+    pkgs.wget 
+    pkgs.git
+    pkgs.picom                 # compositor that enables transparency
+    pkgs.gnome.gnome-keyring
+    pkgs.polkit_gnome
+    pkgs.pulseaudioFull
+    pkgs.unrar
+    pkgs.unzip
+    pkgs.zoxide
+    pkgs.zsh
+    pkgs.firefox
+    pkgs.xclip
+    pkgs.arandr                # xrander GUI for managing monitor layout
+    pkgs.neofetch              # literally just for flexing
+    pkgs.feh                   # for setting wallpaper
+    pkgs.xorg.xkill            # mostly to kill off the extra polybar when I reload i3
+    pkgs.maim                  # used to set Shift+Ctrl+n to take area screenshots in the i3 config
+    pkgs.btop                  # fancy system monitor
+    pkgs.gh                    # github api for command line
+    pkgs.typst                 # like LaTeX but better :)
+    pkgs.pandoc                # for converting between document types
+    pkgs.julia                 # my wife
+    pkgs.tailscale
+    pkgs.eza
+    pkgs.zathura
+    pkgs-unstable.alacritty
   ];
 
   # Bootloader.
