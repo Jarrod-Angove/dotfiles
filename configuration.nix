@@ -62,7 +62,7 @@
     pkgs-unstable.alacritty
   ];
 
-  environment.sessionVariables = rec {
+  environment.variables = rec {
     EZA_ICONS_AUTO = "always";
   };
 
