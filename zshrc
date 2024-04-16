@@ -13,6 +13,9 @@ alias nix-reload="sudo nixos-rebuild switch"
 alias ls="eza"
 alias tree="eza -T"
 
+# Environment variables
+export EZA_ICONS_AUTO='always'
+
 # Enable zoxide
 eval "$(zoxide init zsh)"
 

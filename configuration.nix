@@ -62,10 +62,6 @@
     pkgs-unstable.alacritty
   ];
 
-  environment.variables = rec {
-    EZA_ICONS_AUTO = "always";
-  };
-
   # Bootloader.
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/vda";
