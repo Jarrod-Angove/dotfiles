@@ -4,24 +4,26 @@
 ]]
 
 -- vim options
-vim.opt.shiftwidth = 2
-vim.opt.tabstop = 2
-vim.opt.relativenumber = true
+vim.opt.shiftwidth                                  = 2
+vim.opt.tabstop                                     = 2
+vim.opt.relativenumber                              = false
 
 -- general
-lvim.log.level = "info"
-lvim.format_on_save = {
-  enabled = true,
+lvim.log.level                                      = "info"
+lvim.format_on_save                                 = {
+  enabled = false,
   pattern = "*.lua",
   timeout = 1000,
 }
+lvim.transparent_window                             = true
+lvim.builtin.treesitter.highlight.enable = true
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
 
 -- keymappings <https://www.lunarvim.org/docs/configuration/keybindings>
-lvim.leader = "space"
+lvim.leader                                         = "space"
 -- add your own keymapping
-lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
+lvim.keys.normal_mode["<C-s>"]                      = ":w<cr>"
 
 -- lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
 -- lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
@@ -31,16 +33,45 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 -- lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
 
 -- -- Change theme settings
--- lvim.colorscheme = "lunar"
+lvim.colorscheme = "rose-pine"
 
-lvim.builtin.alpha.active = true
-lvim.builtin.alpha.mode = "dashboard"
-lvim.builtin.terminal.active = true
-lvim.builtin.nvimtree.setup.view.side = "left"
-lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
+lvim.builtin.alpha.active                           = true
+lvim.builtin.alpha.mode                             = "dashboard"
+lvim.builtin.terminal.active                        = true
+lvim.builtin.nvimtree.setup.view.side               = "left"
+lvim.builtin.nvimtree.setup.renderer.icons.show.git = true
 
 -- Automatically install missing parsers when entering buffer
-lvim.builtin.treesitter.auto_install = true
+lvim.builtin.treesitter.auto_install                = true
+
+lvim.plugins                                        = {
+  { "lunarvim/colorschemes" },
+  { "preservim/nerdcommenter" },
+  { "rose-pine/neovim",             name = 'rose-pine' },
+  { "JuliaEditorSupport/julia-vim" },
+  { "preservim/vim-pencil" },
+  { "lervag/vimtex" },
+  { "rust-lang/rust.vim" },
+  { "kaarmu/typst.vim",            ft = { 'typst' } },
+}
+
+vim.g.vimtex_view_method                            = 'zathura'
+vim.g.typst_pdf_viewer                              = 'zathura'
+vim.g.typs_embedded_langauges                       = { 'julia', 'python', 'rust' }
+
+-- This opens a julia REPL in a new window in the current directory
+local jl_key                                        = '<Leader>jl'
+local jl_command                                    = 'alacritty -e julia &'
+vim.keymap.set('n', jl_key, function() vim.fn.system(jl_command) end, { noremap = true })
+
+-- This opens a new terminal window in the current directory
+local fl_key = '<Leader>fl'
+local fl_command = 'alacritty --working-directory . &'
+vim.keymap.set('n', fl_key, function() vim.fn.system(fl_command) end, { noremap = true })
+
+-- Reformat a contiguous paragraph
+vim.keymap.set('n', '<Leader>ff', '}kV{jJgww')
+
 
 -- lvim.builtin.treesitter.ignore_install = { "haskell" }
 
