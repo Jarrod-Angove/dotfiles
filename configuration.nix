@@ -14,7 +14,7 @@
 # - Create a snapshot of your current fedora build and save it to the NAS
 # - New github repo to backup this dotfiles folder
 
-{ config, pkgs, ... }:
+{ config, pkgs, pkgs-unstable, ... }:
 
 {
   imports =
@@ -31,7 +31,6 @@
     lunarvim              # vim but cool
     wget 
     git
-    alacritty             # the superior terminal emulator
     picom                 # compositor that enables transparency
     gnome.gnome-keyring
     polkit_gnome
@@ -55,6 +54,10 @@
     tailscale
     eza
     zathura
+  ];
+
+  environment.systemPackages = with pkgs-unstable; [
+    alacritty
   ];
 
   # Bootloader.
