@@ -4,8 +4,7 @@
 
 # TODO:
 # - Install fonts (find a good  way to do this with Nix, or write a shell script to do it for you)
-# - Get powerlevel10k working with zsh without installing Oh-My-ZSH
-# - Figure out how to make your own  packages so you dont accidentally install stuff you  don't need
+# - Get powerlevel10k working with zsh without installing Oh-My-ZSH - Figure out how to make your own  packages so you dont accidentally install stuff you  don't need
 # - Move some packages to the unstable channel (look into flakes); this should fix alacritty opacity issue
 # - Review and copy over lvim config
 # - Customize lock screen
@@ -60,6 +59,14 @@
     # Unstable packages -- despite their name, this is usually just latest stable release 
     pkgs-unstable.julia
     pkgs-unstable.alacritty
+
+    # LaTeX stuff
+    (pkgs.texlive.combine {
+      inherit (pkgs.texlive)
+      scheme-full
+      # add  missing packages here
+      ;
+    })
   ];
 
   # Bootloader.
