@@ -34,6 +34,8 @@ ln -fs ~/dotfiles/i3config ~/.config/i3/config
 ln -fs ~/dotfiles/gitconfig ~/.gitconfig
 
 mkdir -p ~/.config/lvim/
-ln -s ~/dotfiles/lvim_conf.lua ~/.config/lvim/config.lua
+ln -fs ~/dotfiles/lvim_conf.lua ~/.config/lvim/config.lua
+
+ln -fs ~/dotfiles/p10k.zsh ~/.p10k.zsh
 
 sudo nixos-rebuild switch

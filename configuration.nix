@@ -55,11 +55,16 @@
     pkgs.zathura
     pkgs.dunst
     pkgs.zsh-powerlevel10k
+    pkgs.pandoc
 
     # Unstable packages -- despite their name, this is usually just latest stable release 
     pkgs-unstable.julia
     pkgs-unstable.alacritty
   ];
+
+  environment.sessionVariables = rec {
+    EZA_ICONS_AUTO = "always";
+  };
 
   # Bootloader.
   boot.loader.grub.enable = true;
