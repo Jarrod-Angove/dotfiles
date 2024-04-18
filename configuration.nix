@@ -55,6 +55,7 @@
     pkgs.dunst
     pkgs.zsh-powerlevel10k
     pkgs.pandoc
+    pkgs.yazi
 
     # Unstable packages -- despite their name, this is usually just latest stable release 
     pkgs-unstable.julia

@@ -38,4 +38,9 @@ ln -fs ~/dotfiles/lvim_conf.lua ~/.config/lvim/config.lua
 
 ln -fs ~/dotfiles/p10k.zsh ~/.p10k.zsh
 
+mksir -p ~/.config/yazi/
+ln -fs ~/dotfiles/yazi/yazi.toml ~/.config/yazi/yazi.toml
+ln -fs ~/dotfiles/yazi/keymap.toml ~/.config/yazi/keymap.toml
+ln -fs ~/dotfiles/yazi/theme.toml ~/.config/yazi/theme.toml
+
 sudo nixos-rebuild switch
