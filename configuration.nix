@@ -30,6 +30,7 @@
     pkgs.polkit_gnome
     pkgs.pulseaudioFull
     pkgs.unrar
+    pkgs.imagemagick
     pkgs.unzip
     pkgs.zoxide
     pkgs.zsh
@@ -115,9 +116,9 @@
       displayManager = {                  # called display manager but this is where most lock screen config is
         lightdm = {
           enable = true;
+          background = /home/jangove/dotfiles/images/ships.jpg;
           greeters.slick = {
             enable = true;
-            extraConfig = "background=./ships.jpg";
           };
         };
         defaultSession = "xfce+i3";
