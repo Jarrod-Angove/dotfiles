@@ -9,9 +9,9 @@ sudo rm -f /etc/nixos/configuration.nix
 
 # remove the hardware config in the dotfiles if it exists because  we don't want hardware on 
 # another machine to be configured to another system
-sudo rm -f ~/dotfiles/hardware-configuration.nix
+# sudo rm -f ~/dotfiles/hardware-configuration.nix
 
-sudo cp /etc/nixos/hardware-configuration.nix ~/dotfiles/hardware-configuration.nix
+# sudo cp /etc/nixos/hardware-configuration.nix ~/dotfiles/hardware-configuration.nix
 sudo ln -fs ~/dotfiles/hardware-configuration.nix /etc/nixos/hardware-configuration.nix
 
 # hardware config is the only config I am leaving in its original place
@@ -38,7 +38,7 @@ ln -fs ~/dotfiles/lvim_conf.lua ~/.config/lvim/config.lua
 
 ln -fs ~/dotfiles/p10k.zsh ~/.p10k.zsh
 
-mksir -p ~/.config/yazi/
+mkdir -p ~/.config/yazi/
 ln -fs ~/dotfiles/yazi/yazi.toml ~/.config/yazi/yazi.toml
 ln -fs ~/dotfiles/yazi/keymap.toml ~/.config/yazi/keymap.toml
 ln -fs ~/dotfiles/yazi/theme.toml ~/.config/yazi/theme.toml
