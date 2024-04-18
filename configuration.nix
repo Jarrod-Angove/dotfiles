@@ -53,6 +53,7 @@
     pkgs.ueberzugpp           # this allows for image preview in yazi
     pkgs.ripgrep
     pkgs.ripgrep-all          # wrapper for ripgrep that can search in pdf, docx, epub, etc
+    pkgs.fzf
 
     # Unstable packages -- despite their name, this is usually just latest stable release 
     pkgs-unstable.julia
