@@ -50,7 +50,9 @@
     pkgs.dunst
     pkgs.zsh-powerlevel10k
     pkgs.pandoc
-    pkgs.ueberzugpp
+    pkgs.ueberzugpp           # this allows for image preview in yazi
+    pkgs.ripgrep
+    pkgs.ripgrep-all          # wrapper for ripgrep that can search in pdf, docx, epub, etc
 
     # Unstable packages -- despite their name, this is usually just latest stable release 
     pkgs-unstable.julia
