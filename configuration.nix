@@ -117,6 +117,7 @@
           enable = true;
           greeters.slick = {
             enable = true;
+            extraConfig = "background=./ships.jpg";
           };
         };
         defaultSession = "xfce+i3";
