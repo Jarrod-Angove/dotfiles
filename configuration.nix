@@ -3,15 +3,10 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 # TODO:
-# - Install fonts (find a good  way to do this with Nix, or write a shell script to do it for you)
-# - Get powerlevel10k working with zsh without installing Oh-My-ZSH - Figure out how to make your own  packages so you dont accidentally install stuff you  don't need
-# - Move some packages to the unstable channel (look into flakes); this should fix alacritty opacity issue
-# - Review and copy over lvim config
 # - Customize lock screen
 # - Configure SSH stuff (do it right this time, with keys for all devices) 
 # - Reset password and actually memorize it
 # - Create a snapshot of your current fedora build and save it to the NAS
-# - New github repo to backup this dotfiles folder
 
 { config, pkgs, pkgs-unstable, ... }:
 

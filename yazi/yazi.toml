@@ -1,4 +1,7 @@
 [manager]
-show_hidden = true
+show_hidden = false
 
 [opener]
+edit = [
+  { run = 'lvim "$@"', block = true},
+]
