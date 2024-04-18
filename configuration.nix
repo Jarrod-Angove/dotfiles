@@ -55,11 +55,12 @@
     pkgs.dunst
     pkgs.zsh-powerlevel10k
     pkgs.pandoc
-    pkgs.yazi
+    pkgs.ueberzugpp
 
     # Unstable packages -- despite their name, this is usually just latest stable release 
     pkgs-unstable.julia
     pkgs-unstable.alacritty
+    pkgs-unstable.yazi
 
     # LaTeX stuff
     (pkgs.texlive.combine {
