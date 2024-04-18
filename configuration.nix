@@ -112,8 +112,13 @@
           enableXfwm = false;
         };
       };
-      displayManager = {
-        lightdm.enable = true;
+      displayManager = {                  # called display manager but this is where most lock screen config is
+        lightdm = {
+          enable = true;
+          greeters.slick = {
+            enable = true;
+          };
+        };
         defaultSession = "xfce+i3";
       };
     };
