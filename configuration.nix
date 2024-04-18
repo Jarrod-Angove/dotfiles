@@ -3,10 +3,10 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 # TODO:
-# - Customize lock screen
 # - Configure SSH stuff (do it right this time, with keys for all devices) 
 # - Reset password and actually memorize it
 # - Create a snapshot of your current fedora build and save it to the NAS
+# - Understand how grub works so you can transfer windows over to the new build
 
 { config, pkgs, pkgs-unstable, ... }:
 
@@ -30,31 +30,31 @@
     pkgs.polkit_gnome
     pkgs.pulseaudioFull
     pkgs.unrar
-    pkgs.imagemagick
+    pkgs.imagemagick          # good for converting file types, simple edits, etc
     pkgs.unzip
     pkgs.zoxide
     pkgs.zsh
     pkgs.firefox
-    pkgs.xclip
-    pkgs.arandr                # xrander GUI for managing monitor layout
-    pkgs.neofetch              # literally just for flexing
-    pkgs.feh                   # for setting wallpaper
-    pkgs.xorg.xkill            # mostly to kill off the extra polybar when I reload i3
-    pkgs.maim                  # used to set Shift+Ctrl+n to take area screenshots in the i3 config
-    pkgs.btop                  # fancy system monitor
-    pkgs.gh                    # github api for command line
-    pkgs.typst                 # like LaTeX but better :)
-    pkgs.pandoc                # for converting between document types
-    pkgs.tailscale
-    pkgs.eza
-    pkgs.zathura
-    pkgs.dunst
-    pkgs.zsh-powerlevel10k
+    pkgs.xclip                # enables copy/paste
+    pkgs.arandr               # xrander GUI for managing monitor layout
+    pkgs.neofetch             # literally just for flexing
+    pkgs.feh                  # for setting wallpaper
+    pkgs.xorg.xkill           # mostly to kill off the extra polybar when I reload i3
+    pkgs.maim                 # used to set Shift+Ctrl+n to take area screenshots in the i3 config
+    pkgs.btop                 # fancy system monitor
+    pkgs.gh                   # github api for command line
+    pkgs.typst                # like LaTeX but better :)
+    pkgs.pandoc               # for converting between document types
+    pkgs.tailscale            # vpn thing 
+    pkgs.eza                  # better ls command -- also aliased to tree
+    pkgs.zathura              # pdf viewer 
+    pkgs.dunst                # notification daemon
+    pkgs.zsh-powerlevel10k    # makes CLI pretty 
     pkgs.pandoc
     pkgs.ueberzugpp           # this allows for image preview in yazi
     pkgs.ripgrep
     pkgs.ripgrep-all          # wrapper for ripgrep that can search in pdf, docx, epub, etc
-    pkgs.fzf
+    pkgs.fzf                  # fuzzy finder, mostly just for rga search
 
     # Unstable packages -- despite their name, this is usually just latest stable release 
     pkgs-unstable.julia
@@ -65,7 +65,8 @@
     (pkgs.texlive.combine {
       inherit (pkgs.texlive)
       scheme-full
-      # add  missing packages here
+      # add any  missing packages below
+      biblatex
       ;
     })
   ];
@@ -116,7 +117,7 @@
       displayManager = {                  # called display manager but this is where most lock screen config is
         lightdm = {
           enable = true;
-          background = /home/jangove/dotfiles/images/ships.jpg;
+          background = /home/jangove/dotfiles/images/ships_blur.jpg;
           greeters.slick = {
             enable = true;
           };
